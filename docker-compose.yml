@@ -21,7 +21,7 @@ services:
     image: sysunite/weaver-server:0.1.2
     ports:
      - "9487:9487"
-    depends_on:
+    links:
       - virtuoso
       - redis
 
