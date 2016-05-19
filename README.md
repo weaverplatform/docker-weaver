@@ -2,7 +2,7 @@
 Repo for all docker building/composing related to the weaver platform.
 
 # Status
-In development, currently weaver-server is not dockerable and waiting for a new release.
+In development, broken. Waiting for a publicly available weaver-server-virtuoso.
 
 # Usage
 
