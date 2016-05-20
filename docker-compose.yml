@@ -26,7 +26,7 @@ services:
      - "6379:6379"
 
   weaver:
-    image: sysunite/weaver-server-virtuoso:0.0.4
+    image: sysunite/weaver-server-virtuoso:0.0.4-3
     ports:
      - "9487:9487"
     depends_on:
@@ -36,7 +36,9 @@ services:
       - virtuoso
       - redis
     environment:
-      - REDIS_URL=redis:redis
+      - REDIS_URL=redis:6379
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
       - VIRTUOSO_HOST=virtuoso
       - VIRTUOSO_PORT=1111
       - VIRTUOSO_PASSWORD=myDbaPassword
