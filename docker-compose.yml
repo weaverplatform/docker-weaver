@@ -5,6 +5,9 @@ services:
     expose: 
      - "1111"
      - "8890"
+    ports:
+     - "1111:1111"
+     - "8890:8890"
     volumes:
      - ./data:/data
     environment:
@@ -16,6 +19,8 @@ services:
     image: redis:3.2
     expose:
      - "6379"
+    ports:
+     - "6379:6379"
 
   weaver:
     image: sysunite/weaver-server-virtuoso:0.0.4
