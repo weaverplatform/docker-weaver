@@ -1,9 +1,6 @@
 # docker-weaver
 Repo for all docker building/composing related to the weaver platform.
 
-# Status
-In development, broken. Waiting for a publicly available weaver-server-virtuoso.
-
 # Usage
 
 ## Complete stack
@@ -14,9 +11,11 @@ docker-compose up
 
 This should set up a weaver-server image and all its dependent images.
 
-## weaver-server image 
-In the weaver-server directory, run:
+## weaver-server-virtuoso image 
+This repo also contains functionality to build the weaver-server-virtuoso image as available on Docker Hub. This functionality is not required for regular use, only for updating https://hub.docker.com/r/sysunite/weaver-server-virtuoso/.
+
+In the weaver-server-virtuoso directory, run:
 ```
 ./build.sh <version>
 ``` 
-Where version is correctly tagged github release. This will then create a weaver-server Docker image based on that version.
+Where version is correctly tagged github release. This will then create a weaver-server-virtuoso Docker image based on that version, and publish it on Docker Hub if logged in with a user that has the privileges to publish there.
