@@ -10,8 +10,8 @@ then
 fi;
 
 VERSION="$1"
-PROJECT="weaver-server"
-SRC_LOC="https://github.com/weaverplatform/${PROJECT}/archive/${VERSION}.tar.gz"
+PROJECT="weaver-server-virtuoso"
+SRC_LOC="https://github.com/weaverplatform/${PROJECT}/archive/v${VERSION}.tar.gz"
 
 curl --location --output code.tar.gz "${SRC_LOC}"
 
@@ -22,3 +22,5 @@ mv "${PROJECT}-${VERSION}" "code"
 rm code.tar.gz
 
 docker build -t "sysunite/${PROJECT}:${VERSION}" .
+
+rm -rf code

@@ -1,9 +1,9 @@
-FROM node:6.2
+FROM node:4
 
 # Docker nodejs creation following 
 # https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
 
-RUN apt-get update && apt-get install -y openjdk-7-jdk
+RUN apt-get update && apt-get install -y openjdk-7-jdk netcat
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -17,6 +17,4 @@ COPY code /usr/src/app
 
 EXPOSE 9487
 
-ENV REDIS_URL 192.168.99.100:6379
-
-CMD [ "npm", "start" ]
+CMD echo 'Waiting for virtuoso on ' ${VIRTUOSO_HOST} ':' ${VIRTUOSO_PORT} && while ! nc -w 1 -z ${VIRTUOSO_HOST} ${VIRTUOSO_PORT}; do sleep 0.1; done && npm start
