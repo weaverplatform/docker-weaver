@@ -17,8 +17,6 @@ services:
   
   redis:
     image: redis:3.2
-    volumes:
-     - ./redis-data:/data
     command: redis-server --appendonly yes
     expose:
      - "6379"
