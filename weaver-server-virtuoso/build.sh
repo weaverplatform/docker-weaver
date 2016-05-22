@@ -34,4 +34,4 @@ docker build -t "${DOCKER_PACKAGE}" .
 
 rm -rf code
 
-#docker push "${DOCKER_PACKAGE}"
+docker push "${DOCKER_PACKAGE}"
