@@ -34,4 +34,7 @@ docker build -t "${DOCKER_PACKAGE}" .
 
 rm -rf code
 
-docker push "${DOCKER_PACKAGE}"
+
+echo "${DOCKER_PACKAGW} done building and ready to be distributed. "
+echo "Test it, and after that run the command: docker push ${DOCKER_PACKAGE}"
+echo "to publish the image."
