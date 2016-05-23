@@ -27,7 +27,7 @@ services:
      - "6379:6379"
 
   weaver:
-    image: sysunite/weaver-server-virtuoso:0.0.4-3
+    image: sysunite/weaver-server-virtuoso:0.0.6
     ports:
      - "9487:9487"
     depends_on:
