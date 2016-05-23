@@ -14,6 +14,7 @@ RUN npm install
 RUN npm install -g coffee-script
 
 COPY code /usr/src/app
+RUN coffee -o lib -c src 
 
 EXPOSE 9487
 
