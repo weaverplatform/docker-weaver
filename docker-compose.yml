@@ -43,3 +43,17 @@ services:
       - VIRTUOSO_HOST=virtuoso
       - VIRTUOSO_PORT=1111
       - VIRTUOSO_PASSWORD=myDbaPassword
+
+  workbench:
+    image: sysunite/weaver-workbench-data:0.1.3
+    ports:
+     - "9010:9010"
+    depends_on:
+     - weaver
+    links:
+     - weaver
+    environment:
+     - WEAVER_ADDRESS=http://192.168.99.100:9487/
+     - WEAVER_HOST=192.168.99.100
+     - WEAVER_PORT=9487
+
