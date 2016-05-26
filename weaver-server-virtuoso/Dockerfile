@@ -18,4 +18,4 @@ RUN coffee -o lib -c src
 
 EXPOSE 9487
 
-CMD sleep 3 && echo 'Waiting for redis ' && while ! nc -w 1 -z ${REDIS_HOST} ${REDIS_PORT}; do sleep 0.1; done && echo 'Waiting for virtuoso on ' ${VIRTUOSO_HOST} ':' ${VIRTUOSO_PORT} && while ! nc -w 1 -z ${VIRTUOSO_HOST} ${VIRTUOSO_PORT}; do sleep 0.1; done && npm start
+CMD sleep 3 && echo 'Waiting for redis ' && while ! nc -w 1 -z ${REDIS_HOST} ${REDIS_PORT}; do sleep 0.1; done && echo 'Waiting for virtuoso on ' ${VIRTUOSO_HOST} ':' ${VIRTUOSO_CHECK_PORT} && while ! nc -w 1 -z ${VIRTUOSO_HOST} ${VIRTUOSO_PORT}; do sleep 0.1; done && npm start
