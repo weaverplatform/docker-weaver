@@ -27,7 +27,7 @@ services:
      - "6379:6379"
 
   weaver:
-    image: sysunite/weaver-server-virtuoso:0.0.9
+    image: sysunite/weaver-server-virtuoso:master
     ports:
      - "9487:9487"
     depends_on:
@@ -42,6 +42,7 @@ services:
       - REDIS_PORT=6379
       - VIRTUOSO_HOST=virtuoso
       - VIRTUOSO_PORT=1111
+      - VIRTUOSO_CHECK_PORT=8890
       - VIRTUOSO_PASSWORD=myDbaPassword
 
   workbench:
