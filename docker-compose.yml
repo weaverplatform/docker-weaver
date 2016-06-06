@@ -8,8 +8,6 @@ services:
     ports:
      - "1111:1111"
      - "8890:8890"
-    volumes:
-     - ./virtuoso-data:/data
     environment:
      - DBA_PASSWORD=myDbaPassword
      - SPARQL_UPDATE=true
@@ -17,10 +15,6 @@ services:
   
   redis:
     image: redis:3.2
-    user: "1000:50"
-    volumes:
-     - ./redis-data:/data
-    command: redis-server --appendonly yes
     expose:
      - "6379"
     ports:
