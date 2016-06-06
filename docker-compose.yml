@@ -56,6 +56,6 @@ services:
      - weaver
     environment:
      - WEAVER_ADDRESS=http://192.168.99.100:9487/
-     - WEAVER_HOST=192.168.99.100
+     - WEAVER_HOST=weaver
      - WEAVER_PORT=9487
 
