@@ -41,7 +41,7 @@ services:
       - VIRTUOSO_PASSWORD=myDbaPassword
 
   workbench:
-    image: sysunite/weaver-workbench-data:0.1.10
+    image: sysunite/weaver-workbench-data:0.1.14
     ports:
      - "9010:9010"
     depends_on:
