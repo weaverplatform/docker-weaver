@@ -1,4 +1,4 @@
-FROM node:4.4
+FROM node:0.12
 
 # Docker nodejs creation following 
 # https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
