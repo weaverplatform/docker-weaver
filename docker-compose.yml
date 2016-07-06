@@ -22,7 +22,7 @@ services:
     command: redis-server --appendonly yes
 
   weaver:
-    image: sysunite/weaver-server-virtuoso:0.1.15
+    image: sysunite/weaver-server-virtuoso:0.2.0
     ports:
      - "9487:9487"
     depends_on:
