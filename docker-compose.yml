@@ -21,25 +21,25 @@ services:
      - "6379:6379"
     command: redis-server --appendonly yes
 
- weaver:
-   image: sysunite/weaver-server-virtuoso:0.2.2
-   ports:
-    - "9487:9487"
-   depends_on:
-     - virtuoso
-     - redis
-   links:
-     - virtuoso
-     - redis
-   environment:
-     - PORT=9487
-     - WIPE_ENABLED=true
-     - REDIS_HOST=redis
-     - REDIS_PORT=6379
-     - VIRTUOSO_HOST=virtuoso
-     - VIRTUOSO_PORT=1111
-     - VIRTUOSO_CHECK_PORT=8890
-     - VIRTUOSO_PASSWORD=myDbaPassword
+  weaver:
+    image: sysunite/weaver-server-virtuoso:0.2.2
+    ports:
+     - "9487:9487"
+    depends_on:
+      - virtuoso
+      - redis
+    links:
+      - virtuoso
+      - redis
+    environment:
+      - PORT=9487
+      - WIPE_ENABLED=true
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - VIRTUOSO_HOST=virtuoso
+      - VIRTUOSO_PORT=1111
+      - VIRTUOSO_CHECK_PORT=8890
+      - VIRTUOSO_PASSWORD=myDbaPassword
 
   workbench:
     image: sysunite/weaver-workbench-data:0.1.17
