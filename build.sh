@@ -4,22 +4,22 @@ set -e
 
 if [[ "$1" -eq "--help" ]] || [ "$#" -eq 0 ]; 
 then
-  echo "Usage: $0 <project-name> <source_directory|release tag> [tag]"
+  echo "Usage: $0 <project-name> <source-directory|release-tag> [tag-addition]"
   echo "  project-name: the github project name"
-  echo "  source_directory: the local directory containing the project"
+  echo "  source-directory: the local directory containing the project"
   echo "  release tag: a properly tagged version on github"
-  echo "  tag: an override for the tag"
+  echo "  tag-addition: a suffix for the tag"
   echo ""
   echo "Examples: "
   echo "${0} weaver-server-virtuoso 0.2.2"
-  echo "${0} weaver-server-virtuoso 0.2.2 0.2.2-fix1"
+  echo "${0} weaver-server-virtuoso 0.2.2 fix1"
   echo "${0} weaver-server-virtuoso ~/weaver-server-virtuoso"
   exit 1
 fi;
 
 PROJECT="weaver-server-virtuoso"
 VERSION="${2}"
-TAG="${3}"
+TAGADD="${3}"
 
 if [ -d "${VERSION}" ];
 then
@@ -27,10 +27,7 @@ then
 
   cp -r "${VERSION}" ./code 2>&1 || echo "Done"
 
-  if [[ -z "${TAG}" ]];
-  then
-    TAG="$(hostname)"
-  fi;
+  TAG="$(hostname)"
 else
   echo "Pulling $VERSION from github."
   DLVERSION="v${VERSION}"
@@ -44,10 +41,12 @@ else
 
   mv "${PROJECT}-${VERSION}" "code"
  
-  if [[ -z "${TAG}" ]];
-  then
-    TAG="${VERSION}"
-  fi;
+  TAG="${VERSION}"
+fi
+
+if [[ ! -z "${TAGADD}" ]];
+then
+  TAG="${TAG}-${TAGADD}"
 fi
 
 DOCKER_PACKAGE="sysunite/${PROJECT}:${TAG}"

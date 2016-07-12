@@ -11,13 +11,18 @@ docker-compose up
 
 This should pull and start a weaver-server-virtuoso image and all its dependent images.
 
-## weaver-server-virtuoso image 
-This repo also contains functionality to build the weaver-server-virtuoso image as available on Docker Hub. This functionality is not required for regular use, only for updating https://hub.docker.com/r/sysunite/weaver-server-virtuoso/.
+## Building an image
+This repo also contains functionality to build the docker images as available on Docker Hub. This functionality is not required for regular use, only for updating images on dockerhub, for instance when a new https://hub.docker.com/r/sysunite/weaver-server-virtuoso/ is available.
 
-In the weaver-server-virtuoso directory of this repository, run:
+Run:
 ```
-./build.sh <version>
+./build.sh <project-name> <version>
 ``` 
+
+For example:
+```
+./build.sh weaver-server-virtuoso 0.2.2
+```
 Where version is correctly tagged github release (see below). This will then create a weaver-server-virtuoso Docker image based on that version, and publish it on Docker Hub if logged in with a user that has the privileges to publish there.
 
 ### Tagging weaver-server-virtuoso for building an image
@@ -28,3 +33,19 @@ npm version patch
 git push --tags
 ```
 For a major or minor version, change the npm version argument.
+
+
+### Building a development version image
+
+Sometimes you may want to create a docker image based on the current code you have on your local system but this isn't completely ready for release for some reason. The build script supports this in the following way:
+
+```
+./build.sh <project-name> <source directory>
+```
+
+For example:
+```
+./build.sh weaver-server-virtuoso ~/weaver-server-virtuoso
+```
+
+This will create an image based on that checkout with a tag based on your hostname to denote an unofficial release.
