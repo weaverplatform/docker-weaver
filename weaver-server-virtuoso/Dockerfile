@@ -8,12 +8,10 @@ RUN apt-get update && apt-get install -y openjdk-7-jdk netcat
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-COPY code/package.json /usr/src/app
+COPY code /usr/src/app
 RUN npm install --quiet
-
 RUN npm install --quiet -g coffee-script
 
-COPY code /usr/src/app
 RUN coffee -o lib -c src 
 
 EXPOSE 9487
