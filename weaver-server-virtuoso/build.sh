@@ -54,7 +54,7 @@ DOCKER_PACKAGE="sysunite/${PROJECT}:${TAG}"
 
 echo "Building docker package: ${DOCKER_PACKAGE}"
 
-docker build -t "${DOCKER_PACKAGE}" .
+docker build -f code/Dockerfile -t "${DOCKER_PACKAGE}" .
 
 rm -rf code
 
