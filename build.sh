@@ -25,7 +25,7 @@ if [ -d "${VERSION}" ];
 then
   echo "Since $VERSION is a directory, I'm going to assume the sources are in there."
 
-  cp -r "${VERSION}" ./code 2>&1 || echo "Done"
+  rsync -av --exclude=".*" "${VERSION}" ./code 2>&1 || echo "Done"
 
   TAG="$(hostname)"
 else
