@@ -22,7 +22,7 @@ services:
     command: redis-server --appendonly yes
 
   weaver:
-    image: sysunite/weaver-server-virtuoso:0.2.4
+    image: sysunite/weaver-server-virtuoso:baslaptop.local
     ports:
      - "9487:9487"
     depends_on:
