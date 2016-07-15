@@ -1,8 +1,6 @@
 version: '2'
 
-# Images for the UOB project: weaver-server-neo4j(embedded neo4j), IFC_generator, frontendStructure -> ifc-webviewer, redis and jetty(replaces IFC-generator image for now).
 services:
-
   weaver:
     image: sysunite/weaver-server-neo4j:beta
     volumes:
@@ -20,9 +18,9 @@ services:
       - REDIS_PORT=6379 
 
   redis:
-    image: redis:3.2 # 3.2 is still the latest
+    image: redis:3.2
     expose:
-     - "6379" # Allow communication from weaver-server-neo4j image
+     - "6379"
     ports:
      - "6379:6379"
 
