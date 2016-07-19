@@ -17,7 +17,7 @@ then
   exit 1
 fi;
 
-PROJECT="weaver-server-virtuoso"
+PROJECT="${1}"
 VERSION="${2}"
 TAGADD="${3}"
 
