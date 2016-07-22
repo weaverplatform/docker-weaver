@@ -40,6 +40,8 @@ services:
       - VIRTUOSO_PORT=1111
       - VIRTUOSO_CHECK_PORT=8890
       - VIRTUOSO_PASSWORD=myDbaPassword
+      - READ_TOKEN=adsfasdf
+      - WRITE_TOKEN=fkdskdff
 
   workbench:
     image: sysunite/weaver-workbench-data:0.1.17
